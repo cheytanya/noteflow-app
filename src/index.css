@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* Custom note colors background classes */
+.note-bg-default { @apply bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700; }
+.note-bg-red     { @apply bg-red-50 dark:bg-red-950/70 border-red-200 dark:border-red-900/60; }
+.note-bg-orange  { @apply bg-orange-50 dark:bg-amber-950/70 border-orange-200 dark:border-amber-900/60; }
+.note-bg-yellow  { @apply bg-yellow-50 dark:bg-yellow-950/70 border-yellow-200 dark:border-yellow-900/60; }
+.note-bg-green   { @apply bg-emerald-50 dark:bg-emerald-950/70 border-emerald-200 dark:border-emerald-900/60; }
+.note-bg-teal    { @apply bg-teal-50 dark:bg-teal-950/70 border-teal-200 dark:border-teal-900/60; }
+.note-bg-blue    { @apply bg-sky-50 dark:bg-sky-950/70 border-sky-200 dark:border-sky-900/60; }
+.note-bg-purple  { @apply bg-purple-50 dark:bg-purple-950/70 border-purple-200 dark:border-purple-900/60; }
+.note-bg-pink    { @apply bg-pink-50 dark:bg-pink-950/70 border-pink-200 dark:border-pink-900/60; }
+
+/* Grid / Masonry card hover transitions */
+.note-card-transition {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes notifSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-notif-slide {
+  animation: notifSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Floating notification container */
+.notification-container {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  width: calc(100vw - 48px);
+  max-width: 400px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .notification-container {
+    right: 16px;
+    bottom: 80px; /* Above mobile navigation bar */
+    width: calc(100vw - 32px);
+  }
+}
+
+.notification-card {
+  pointer-events: auto;
+}
+

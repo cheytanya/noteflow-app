@@ -1,0 +1,23 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Production Builds
+dist
+build
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Server data & logs
+server/data/*.json
+!.gitignore
+*.log
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode
+.idea
